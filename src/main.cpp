@@ -54,7 +54,7 @@ int main(int argc, char* argv[])
                         return crow::response(404);
                         });
 
-                app.port(port).multithreaded().run();
+                app.port(port).bindaddr(ip).multithreaded().run();
             }
     return 0;
 }
