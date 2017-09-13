@@ -1,4 +1,5 @@
 #include <unistd.h>
+#include <signal.h>
 #include <iostream>
 #include <boost/filesystem.hpp>
 #include <fstream>
@@ -28,7 +29,7 @@ int main(int argc, char* argv[])
     }
     if (fork() == 0)
             {
-
+                signal(SIGHUP, SIG_IGN);
                 crow::SimpleApp app;
 
                 CROW_ROUTE(app, "/")
