@@ -32,6 +32,10 @@ int main(int argc, char* argv[])
                 signal(SIGHUP, SIG_IGN);
                 crow::SimpleApp app;
 
+                if (directory[directory.size() - 1] != '/')
+                    {
+                        directory += '/';
+                    }
                 CROW_ROUTE(app, "/")
                 ([directory](const crow::request& req){
                         std::string temp = req.url;
